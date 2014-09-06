@@ -17,5 +17,14 @@ class Zaposlen extends Korisnik {
         } else {
             throw new Exception("Greska prilikom dodavanja zaposlenog u bazu");
         }
-    }           
+    }
+    public function sviProfesori(){
+        $query = "SELECT * FROM zaposleni";
+        $result = $this->SqlQuery($query);
+        $zaposleni = array();
+        while($row = $this->db->FetchArray($result)){
+        $zaposleni[] = $row;
+        }
+        return $zaposleni;
+    }
 }
