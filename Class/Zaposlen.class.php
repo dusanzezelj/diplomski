@@ -18,7 +18,7 @@ class Zaposlen extends Korisnik {
             throw new Exception("Greska prilikom dodavanja zaposlenog u bazu");
         }
     }
-    public function sviProfesori(){
+    public function sviZaposleni(){
         $query = "SELECT * FROM zaposleni";
         $result = $this->SqlQuery($query);
         $zaposleni = array();
@@ -27,4 +27,11 @@ class Zaposlen extends Korisnik {
         }
         return $zaposleni;
     }
+    public function getZaposlen($id){
+        $query = "SELECT * FROM $this->table"
+                . "WHERE ID = $id";
+        $res = $this->SqlQuery($query);
+        return $this->db->FetchArray($result);
+    }
+    
 }
