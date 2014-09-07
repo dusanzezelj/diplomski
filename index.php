@@ -1,12 +1,15 @@
 <?php
 $title = "Pocetna";
 $naslov = "Racunarski centar";
-   require_once 'www/header';   
+   require_once 'www/header.php';   
  ?>
-<form action="prijava_zap.php" method="post">
-    <label>Korisnicko ime:</label><input type="text" name="username">
-    <label>Lozinka:</label><input type="password" name="password">
-    <input type="submit" name="submit" value="Prijavi se">
-    <script src=""
+<form>
+    <label>Korisnicko ime:</label><input type="text" id="username" name="username" required>
+    <label>Lozinka:</label><input type="password"  id="password" name="password" required>
+    <input type="submit" name="submit" id="submit" value="Prijavi se">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="www/js/ajx.js"></script>
 </form>
+<div id="poruka"></div>
+<?php require_once 'www/footer.php'; ?>
 

@@ -8,7 +8,8 @@ require_once '../../inc/mysql.inc.php';
 require_once '../../Class/Zaposlen.class.php';
 ?>
 <div id="profil">
-    <?php 
+    <?php
+    session_start();
         $db = new Db(HOST, USERNAME, PASSWORD, DATABASE);
         $zaposlen = new Zaposlen($db);
         $info = $zaposlen->getZaposlen($_SESSION['id']);        

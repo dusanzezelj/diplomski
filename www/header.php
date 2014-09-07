@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
         <title><?php echo $title?></title>
-        <link rel="stylesheet" href="styles/main.css" type="text/css">
+        
     </head>
     <body>
         <div id="container">
