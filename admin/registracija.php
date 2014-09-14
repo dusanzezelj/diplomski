@@ -11,9 +11,10 @@ if(isset($_POST['submit'])){
     foreach ($niz as $value) {
         $_POST[$value] = $db->EscapeString(trim($_POST[$value]));
     }
+    $date = date("Y-m-d", strtotime($_POST['datum']));
     $zaposlen = new Zaposlen($db);
     $id = $zaposlen->dodaj($_POST['username'], $_POST['password'],$_POST['ime'], $_POST['prezime'], $_POST['adresa'], $_POST['telefon'], $_POST['email'], $_POST['sajt'], 
-                    $_POST['bio'], $_POST['zvanje'], $_POST['datum'], $_POST['kabinet'], $_POST['prijem'], $_POST['status']);
+                    $_POST['bio'], $_POST['zvanje'], $date, $_POST['kabinet'], $_POST['prijem'], $_POST['status']);
     echo 'ID zaposlenog je'. $id;
        } catch (Exception $ex){
     echo $ex->getMessage();

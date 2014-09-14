@@ -19,6 +19,7 @@
         
         public function Connect(){
             $this->db = new mysqli($this->sMySqlHost,$this->sMySqlUserName,$this->sMySqlPassword,$this->sMySqlDatabase);
+            $this->SqlQuery("SET NAMES 'utf8'");
             if(mysqli_connect_errno()) {
                 throw new Exception($this->db->connect_error, $this->db->connect_errno);
             } 

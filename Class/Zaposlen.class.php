@@ -29,9 +29,15 @@ class Zaposlen extends Korisnik {
     }
     public function getZaposlen($id){
         $query = "SELECT * FROM $this->table"
-                . "WHERE ID = $id";
-        $res = $this->SqlQuery($query);
-        return $this->db->FetchArray($result);
+                . " WHERE ID = $id";
+        $res = $this->db->SqlQuery($query);
+        return $this->db->FetchArray($res);
+    }
+    public function editZaposlen($id, $adresa, $telefon, $biografija, $kabinet, $prijem){
+        $query = "UPDATE zaposleni
+                 SET adresa = '$adresa' AND telefon = '$telefon' AND biografija = '$biografija' AND kabinet = '$kabinet' AND prijem_studenata = '$prijem'
+                 WHERE ID = $id";
+        $this->db->SqlQuery($query);
     }
     
 }

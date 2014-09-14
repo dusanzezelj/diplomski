@@ -15,7 +15,7 @@ class Korisnik {
                 }
     }
     public function postoji($username, $password){
-        $query = "SELECT ID FROM $this->table WHERE userename = '$username AND password = '". sha1($password)."'";
+        $query = "SELECT ID FROM $this->table WHERE username = '$username' AND password = '". sha1($password)."'";
         $res =  $this->db->SqlQuery($query);
                 if ($this->db->GetNumRows($res) < 1){
                     return false;
@@ -37,7 +37,7 @@ class Korisnik {
   }
   public function prijava($username, $password){
       if($this->postoji($username, $password)){
-          $query = "SELECT * FROM $this->table WHERE userename = '$username AND password = '". sha1($password)."'";
+          $query = "SELECT * FROM $this->table WHERE username = '$username' AND password = '". sha1($password)."'";
           $res =  $this->db->SqlQuery($query);
           return $this->db->FetchArray($res);
       } else {

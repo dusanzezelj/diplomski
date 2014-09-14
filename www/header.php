@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="http://localhost/diplomski/www/styles/main.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?php echo $title?></title>
         
     </head>

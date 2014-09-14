@@ -1,6 +1,9 @@
 html {
   background-color: #AD4B56;   
 }
+body {
+  
+}
 #container{
     background-color: white;
     width: 80%;
@@ -12,15 +15,19 @@ html {
     text-align: center;
 }
 #prof_meni{
+    background-color: white;
     float: left;
     width: 80px;
 }
 #prof_meni ul{
+    
     margin-top: 20px;
 }
 #profil{
+    background-color: white;
     float:left;
     padding: 50px;
+    margin-left: 50px;
     
 }
 

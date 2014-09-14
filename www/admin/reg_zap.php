@@ -1,10 +1,10 @@
 <?php
 $title = "Registracija zaposlenih";
+$naslov = "Registracija zaposlenih";
 require_once '../header.php';
 ?>
- <h1>Registracija zaposlenih</h1>
  <form name="reg_zap" action="../../admin/registracija.php?osoba=zap" method="post" enctype="multipart/form-data">
-<label>Korisnicko ime:</label><input type="text" name="username"></br>
+<label>Korisničko ime:</label><input type="text" name="username"></br>
 <label>Lozinka:</label><input type="password" name="password"></br>
 <label>Ime:</label><input type="text" name="ime"></br>
 <label>Prezime:</label><input type="text" name="prezime"></br
@@ -35,3 +35,4 @@ require_once '../header.php';
 </form>
  <?php
 require_once '../footer.php';
+?>

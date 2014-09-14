@@ -14,11 +14,14 @@ require_once '../../Class/Zaposlen.class.php';
         $zaposlen = new Zaposlen($db);
         $info = $zaposlen->getZaposlen($_SESSION['id']);        
     ?>
+    <form action="editProfil.php" method="post">
     <label>Adresa:</label><input type="text" name="adresa" value="<?php echo $info['adresa']?>"></br>
     <label>Telefon:</label><input type="text" name="telefon" value="<?php echo $info['telefon']?>"></br>
     <label>Biofrafija:</label><textarea name="bio" rows="7" cols="60"><?php echo $info['biografija']?></textarea></br>
     <label>Kabinet:</label><input type="text" name="kabinet" value="<?php echo $info['kabinet']?>"></br>
     <label>Prijem studenata:</label><textarea name="prijem" rows="5" cols="50"><?php echo $info['prijem_studenata']?></textarea></br>
+    <input type="submit" name="submit" value="Prihvati">
+    </form>
 </div>
 <?php require_once '../footer.php';?>
 
