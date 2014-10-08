@@ -9,7 +9,8 @@ session_start();
     $id = $db->EscapeString($_GET['predmetID']);
     $pred = $predmet->getPredmetByID($id);
     if(!empty($pred)){ 
-        $a= $pred['cilj'];
+        $_SESSION['predmetID'] = $id;
+        $a = $pred['cilj'];
         echo json_encode($pred);
       } else {
           echo 0;

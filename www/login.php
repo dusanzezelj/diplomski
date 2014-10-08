@@ -14,7 +14,9 @@ $res = $zaposlen->prijava($username, $password);
  } else {
      session_start();
      $_SESSION['id'] = $res['ID'];
+     $_SESSION['zap'] = true;
      $_SESSION['username']= $res['username'];
+     $_SESSION['ime_prezime']= $res['ime'].' '.$res['prezime'];
      echo '1';
      //header('Location: zaposleni/profil.php');
 }

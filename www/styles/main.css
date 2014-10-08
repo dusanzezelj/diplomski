@@ -4,10 +4,15 @@ html {
 body {
   
 }
+a{
+    text-decoration: none;
+}
 #container{
+    overflow: hidden;
     background-color: white;
-    width: 80%;
-    margin-left: 10%;
+    width: 960px;
+    margin-left:auto;
+    margin-right: auto;
 }
 #header{
     width: 100%;
@@ -17,11 +22,13 @@ body {
 #prof_meni{
     background-color: white;
     float: left;
-    width: 80px;
+    width: 200px;
+    padding-top: 20px;
+    height: 100%;
 }
 #prof_meni ul{
     
-    margin-top: 20px;
+    
 }
 #profil{
     background-color: white;
@@ -30,5 +37,72 @@ body {
     margin-left: 50px;
     
 }
-
+#prof-predmet-edit{
+    margin: 50px;
+    text-align: center;
+}
+#table-materijali {
+    float: left;
+    width: 500px;
+}
+#table-materijali table{
+     border-collapse: collapse;
+     border: 1px solid black;
+     text-align: center;
+     height: 30px;
+     padding: 5px;
+}
+#table-materijali table tr th{
+    border: 1px solid black;
+}
+#table-materijali table tr td{
+    border: 1px solid black;
+    height: 30px;
+    padding: 5px;
+}
+#forma-dodavanje-materijal{
+    float: left;
+    width: 760px;
+    margin: 40px, auto;
+}
+#edit-vesti{
+    width: 600px;
+    height: 300px;
+    padding-top: 15px;
+}
+#unos-vesti{
+    width: 700px;
+    margin-left: 200px;
+    float:left;
+}
+#spisak-vesti{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#spisak-vesti table{
+    border-collapse: collapse;     
+     text-align: center;     
+}
+#spisak-vesti table tr td{
+    border: 1px solid black;
+    height: 30px;
+    padding: 5px;
+}
+#spisak-vesti table tr th{
+    border: 1px solid black;
+}
+#lista-zaposleni {
+    float: left;
+    margin-left: 50px;
+    text-align: center;
+}
+#lista-zaposleni table td{
+    padding: 3px;
+    border-bottom: 1px solid #139ff7;
+    font-size: 15px;
+    
+}
+#lista-zaposleni table th{
+    background-color: #139ff7;
+}
 

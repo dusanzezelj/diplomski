@@ -28,6 +28,52 @@ $(document).ready(function (){
             }
         }, 'json');
     });
+    
+    $('tr td #obrisi-mat').on('click', function (){
+        $.get('brisanjeMat.php', function (data){
+           if(data == 1){
+              $(this).remove();
+                //location.reload();
+           } else {
+               alert(data);
+           }
+        });
+    });
+    CKEDITOR.replace('sadrzaj-vesti');    
+    $('#forma-vesti').submit(function(event){
+        event.preventDefault();
+        var value = CKEDITOR.instances['sadrzaj-vesti'].getData();
+        $('#forma-vesti #sadrzaj').val(value); 
+        var formData = new FormData($(this)[0]);
+        $.ajax({
+            url: 'insertVesti.php',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                alert("Vest je uspesno dodata");
+            }
+        });
+    });
+    function loadVesti(){
+        $('#spisak-vesti').load('../zaposleni/load/loadVesti.php');
+        //$('#spisak-vesti table').click(function (){ 
+        $('#spisak-vesti').on("click", "table tr td.obrisi", function(){
+            //alert(this.parentNode.children[0].innerText);
+            var id = this.parentNode.children[0].innerText;
+            $.get('brisanjeVesti.php', {ID : id}, function (data){
+                if(data != 1){
+                    alert(data);
+                }
+                loadVesti();
+            });            
+        });
+    }
+    loadVesti();  
+    
 });
 
 

@@ -20,7 +20,7 @@ class Zaposlen extends Korisnik {
     }
     public function sviZaposleni(){
         $query = "SELECT * FROM zaposleni";
-        $result = $this->SqlQuery($query);
+        $result = $this->db->SqlQuery($query);
         $zaposleni = array();
         while($row = $this->db->FetchArray($result)){
         $zaposleni[] = $row;
