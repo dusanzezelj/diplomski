@@ -51,7 +51,8 @@ class Predmet {
         if(!(in_array($tip, $ext)) || !(in_array($fajl['type'], $mime_types))){
             throw new Exception("Pogresan tip fajla");
         }
-        $pathname = $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$predmetID/$vrsta/";
+        $odsek = $this->getOdsek($predmetID);
+        $pathname = $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/$predmetID/$vrsta/";
         if(!is_dir($pathname)){
             mkdir($pathname, 0777, true);
         }
@@ -65,7 +66,8 @@ class Predmet {
         $result = $this->db->SqlQuery($query);
         $data = $this->db->FetchArray($result);
         if(!empty($data)){
-        if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/".$data['id_predmet']."/materijali/".$data['naziv'])){
+           $odsek = $this->getOdsek($data['id_predmet']); 
+        if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/".$data['id_predmet']."/materijali/".$data['naziv'])){
             $query = "DELETE * FROM materijali WHERE ID = $id";
             $this->db->SqlQuery($query);
         } else {
@@ -95,15 +97,44 @@ class Predmet {
         }
         return $r;       
     }
+    private function getOdsek($predmetID){
+        $query = "SELECT odsek FROM predmeti where ID = $predmetID";
+        $result = $this->db->SqlQuery($query);
+        $niz = $this->db->FetchArray($result);
+        return $niz['odsek'];
+    }
     public function getPredmetByOdsek($odsek){
-        $query = "SELECT ID, naziv, tip, godina, espb FROM predmeti WHERE odsek = '$odsek' SORT BY godina";
+        $query = "SELECT ID, naziv, tip, godina, espb, semestar FROM predmeti WHERE odsek = '$odsek' ORDER BY semestar";
         $res = $this->db->SqlQuery($query); 
         $niz = array();
         while ($row = $this->db->FetchArray($res)) {
             $niz[] = $row;
         }
         return $niz;       
-    }    
+    }
+    public function updatePredmet($id, $tip, $godina, $odsek, $sifra_predmeta, $fond_casova, $espb, $cilj, $uslov, $termin_vezbe, $termin_predavanja){
+        $query = "UPDATE predmeti SET tip='$tip', godina=$godina, odsek='$odsek', sifra_predmeta='$sifra_predmeta',
+                  fond_casova=$fond_casova, espb=$espb, cilj='$cilj', uslov='$uslov', termin_vezbe='$termin_vezbe', termin_predavanja='$termin_predavanja'
+                  WHERE id=$id";
+        if($this->db->SqlQuery($query)){
+            return true;
+        } else {
+            throw new Exception("Greška prilikom ažuriranja predmeta");
+        }
+    }
+    public function getProfesor($id){
+        $query = "SELECT z.ime, z.prezime FROM zaposleni as z
+                  INNER JOIN angazovanja as a ON ( z.ID = a.id_nastavnik)
+                  WHERE a.id_predmet = $id AND z.zvanje = 'redovni profesor'";
+        $res = $this->db->SqlQuery($query);
+        $r = $this->db->FetchArray($res);
+        return $r['ime'].' '.$r['prezime'];
+    }
+    public function getPath($id, $vrsta){
+        $odsek = $this->getOdsek($id);
+        return $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/$id/$vrsta/";
+    }
+            
     
     
 }

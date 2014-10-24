@@ -1,10 +1,11 @@
 <?php
 
 $title = "Registracija studenta";
+$naslov = "Registracija studenta";
 require_once '../header.php';
 ?>
-<h1>Registracija studenta</h1>
-<form name="reg_studenta" action="../../admin/registracija.php?osoba=stud" method="post">
+<form id="registracija-student" name="reg_studenta" action="" method="post">
+    <input type="hidden" name="osoba" value="stud">
 <label>Korisnicko ime:</label><input type="text" name="username"></br>
 <label>Lozinka:</label><input type="password" name="password"></br>
 <label>Indeks:</label><input type="text" name="indeks"></br>

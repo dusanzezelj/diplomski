@@ -25,13 +25,20 @@ $angazovanje = $predmet->getPredmetByProf($_SESSION['id']);
         <option value="izborni">Izborni</option>
         <option value="obavezni">Obavezni</option>
     </select><br>
+    <input type="hidden" name="id" value="">
+    <label>Godina:</label><input type="text" name="godina"><br>
+    <label>Odsek:</label><input type="text" name="odsek"><br>
     <label>Šifra predmeta:</label><input type="text" name="sifra"><br>
+    <label>Fond časova:</label><input type="text" name="fond"><br>
     <label>ESPB:</label><input type="text" name="espb" size="3"><br>
-    <label>Uslov:</label><textarea name="uslov" id="uslov" rows="6" cols="40"></textarea><br>
-    <label>Cilj predmeta:</label><textarea name="cilj" id="cilj" rows="6" cols="40"></textarea><br>
-    <input type="submit" name="prihvati" value="Prihvati">
+    <label>Uslov:</label><textarea class="ckeditor" name="uslov" id="uslov"></textarea><br>
+    <label>Cilj predmeta:</label><textarea class="ckeditor" name="cilj" id="cilj"></textarea><br>
+    <label>Termin vežbi:</label><textarea name="vezbe" id="vezbe"></textarea><br>
+    <label>Termin predavanja:</label><textarea name="predavanja" id="predavanja"></textarea><br>
+    <input type="submit" name="submit" value="Prihvati">
     </form>
 </div>
- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../../ckeditor/ckeditor.js"></script>
     <script src="../js/ajx.js"></script>
 <?php require '../footer.php';?>

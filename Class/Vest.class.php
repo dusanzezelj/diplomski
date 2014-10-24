@@ -36,7 +36,7 @@ class Vest {
         }
     }
     public function getVestByIDPredmet($id_predmet){
-        $query = "SELECT * FROM vesti WHERE id_predmet IN($id_predmet)";
+        $query = "SELECT * FROM vesti WHERE id_predmet IN($id_predmet) ORDER BY datum DESC";
         $result = $this->db->SqlQuery($query);
         $niz = array();
         while($row = $this->db->FetchArray($result)){
@@ -44,6 +44,21 @@ class Vest {
         }
         return $niz;
     }
+    public function getVestByID($id){
+        $query = "SELECT * FROM vesti
+                  WHERE ID = $id";
+        $res = $this->db->SqlQuery($query);
+        return $this->db->FetchArray($res);
+    }
+    public function updateVest($id, $sadrzaj){
+        $query = "UPDATE vesti SET sadrzaj = '$sadrzaj' WHERE ID = $id";
+        if($this->db->SqlQuery($query)){
+            return true;
+        } else {
+            throw new Exception("Greška prilikom ažuriranja vesti");
+        }
+    }
+
     public function deleteVest($id){
         $query = "SELECT v.id_predmet, vm.ID, vm.naziv FROM vesti as v INNER JOIN vesti_materijal as vm ON (v.ID = vm.id_vest)
                   WHERE vm.id_vest = $id";

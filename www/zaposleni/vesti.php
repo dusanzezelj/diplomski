@@ -23,7 +23,7 @@ $vesti= new Vest($db);
         <input type="text" name="naslov" required><br>
         <label>Unesite tekst vesti:</label><br>
         <div id="edit-vesti">
-        <textarea id="sadrzaj-vesti" name="sadrzaj-vesti"></textarea>
+        <textarea class="ckeditor" id="sadrzaj-vesti" name="sadrzaj-vesti"></textarea>
         <input type="hidden" id="sadrzaj" name="sadrzaj" value="">
         </div><br>
         <label>Izaberite predmete:</label><br>

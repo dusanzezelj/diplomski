@@ -23,7 +23,7 @@ $db = new Db(HOST, USERNAME, PASSWORD, DATABASE);
              </tr>';
     foreach ($sve_vesti as $v){
         echo '<tr>
-              <td>'. $v['ID'].'</td><td>'. $v['naslov'].'</td><td>'. $v['id_predmet'].'</td><td class="obrisi"><a href="#">Obriši</a></td>
+              <td>'. $v['ID'].'</td><td>'. $v['naslov'].'</td><td>'. $v['id_predmet'].'</td><td><a href="azuriranjeVesti.php?id='.$v['ID'].'">azuriraj</a></td><td class="obrisi"><a href="#">Obriši</a></td>
              </tr>';
         }
         echo '</table>';   

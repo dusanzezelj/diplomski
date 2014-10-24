@@ -40,6 +40,9 @@ a{
 #prof-predmet-edit{
     margin: 50px;
     text-align: center;
+    width: 500px;
+    float: left;
+    
 }
 #table-materijali {
     float: left;
@@ -105,4 +108,11 @@ a{
 #lista-zaposleni table th{
     background-color: #139ff7;
 }
-
+#uslov{
+    width: 100px;
+    height: 70px;
+}
+#div-azuriranje-vesti{
+    float: left;
+    width: 700px;
+}
