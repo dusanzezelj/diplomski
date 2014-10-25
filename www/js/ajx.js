@@ -82,7 +82,6 @@ $(document).ready(function (){
     });
     function loadVesti(){
         $('#spisak-vesti').load('../zaposleni/load/loadVesti.php');
-        //$('#spisak-vesti table').click(function (){ 
         $('#spisak-vesti').on("click", "table tr td.obrisi", function(){
             //alert(this.parentNode.children[0].innerText);
             var id = this.parentNode.children[0].innerText;
@@ -164,7 +163,16 @@ $(document).ready(function (){
             }            
         });
     });
-    
+    //dodavanje angazovanja
+    $('#forma-angazovanje').submit(function (){      
+        $.post( "ajxAngazovanja.php", $(this).serialize(), function (data){
+               if(data == 1){
+                   alert("Angažovanje je dodato");
+               } else {
+                   alert(data);
+               }
+           });
+    });
 });
 
 

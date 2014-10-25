@@ -18,6 +18,16 @@ class Predmet {
         }
         return $r;
     }
+    public function sviPredmeti(){
+         $query = "SELECT * FROM predmeti";
+        $result = $this->db->SqlQuery($query);
+        $predmeti = array();
+        while($row = $this->db->FetchArray($result)){
+        $predmeti[] = $row;
+        }
+        return $predmeti;
+    }
+
     public function getPredmetByID($id){        
         $query = "SELECT * FROM predmeti
                   WHERE ID = $id";

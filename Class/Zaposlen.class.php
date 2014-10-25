@@ -39,5 +39,19 @@ class Zaposlen extends Korisnik {
                  WHERE ID = $id";
         $this->db->SqlQuery($query);
     }
+    public function addAngazovanje($zaposleniID, $predmetID, $grupa){
+        $query = "SELECT * FROM angazovanja "
+                . "WHERE id_predmet = $predmetID AND id_nastavnik = $zaposleniID "
+                . "AND grupa = $grupa";
+        $res =  $this->db->SqlQuery($query);
+                if ($this->db->GetNumRows($res) > 0){
+                    throw new Exception("Zaposlen je već angažovan na ovom predmetu");
+                }
+        $query = "INSERT INTO angazovanja "
+                . "(id_predmet, id_nastavnik, grupa) VALUES ($predmetID, $zaposleniID, $grupa)";
+        if(!$this->db->SqlQuery($query)){
+            throw new Exception("Greška prilikom dodavanja angažovanja");
+        }
+    }
     
 }
