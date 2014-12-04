@@ -14,17 +14,23 @@ class Korisnik {
                     throw new Exception("Korisnik postoji pod ovim korisnickim imenom");
                 }
     }
-    public function postoji($username, $password){
-        $query = "SELECT ID FROM $this->table WHERE username = '$username' AND password = '". sha1($password)."'";
-        $res =  $this->db->SqlQuery($query);
-                if ($this->db->GetNumRows($res) < 1){
-                    return false;
-                }
-                return true;
+    public function postoji($username, $password) {
+        $query = "SELECT ID, password FROM $this->table WHERE username = '$username'";
+        $res = $this->db->SqlQuery($query);
+        if ($this->db->GetNumRows($res) < 1) {
+            return false;
+        }
+        $row = $this->db->FetchArray($res);
+        if (password_verify($password, $row['password'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
     public function promenaLozinke($username, $old_password, $new_password){
         if($this->postoji($username, $old_password)){
-            $query = "UPDATE $this->table SET password = '". sha1($new_password). "'"
+            $password = password_hash($new_password, PASSWORD_DEFAULT);
+            $query = "UPDATE $this->table SET password = '". $password. "'"
                     . "WHERE username = '$username'";
             if($this->db->SqlQuery($query)){
                 return true;
@@ -37,11 +43,11 @@ class Korisnik {
   }
   public function prijava($username, $password){
       if($this->postoji($username, $password)){
-          $query = "SELECT * FROM $this->table WHERE username = '$username' AND password = '". sha1($password)."'";
+          $query = "SELECT * FROM $this->table WHERE username = '$username'";
           $res =  $this->db->SqlQuery($query);
           return $this->db->FetchArray($res);
       } else {
-          return null;
+           throw new Exception("Pogrešno ste uneli korisničko ime ili lozinku!");
       }
   }
 }

@@ -1,6 +1,9 @@
 <?php
 
-require_once '../sesijaZaposleni.php';
+require_once 'sesijaZaposleni.php';
+if(!isset($_SESSION['predmetID'])){
+    header('Location:predmeti.php');
+}
 $title = "Ispitni zadaci";
 $naslov ="Ispitni zadaci";
 require_once '../header.php';
@@ -15,13 +18,16 @@ $materijali = $predmet->getIspitniZadaci($_SESSION['predmetID']); ?>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <label>Materijal za ispit:</label><input type="file" name="file">
         <input type="hidden" name="vrsta" value="ispitni">
-        <input type="submit" name="submit" value="Odaberi">
+        <input type="submit" class="button-small pure-button" name="submit" value="Prihvati">
     </form>
 </div>
 <?php if(!empty($materijali)): ?>
-  <div id="table-materijali">
-    <table>
-        <tr><th>Naziv</th><th>Tip</th><th>Datum postavljanja</th><th>Veličina</th><th>Nastavnik</th><th>Brisanje</th></tr>
+  <div class="sadrzaj-nastavnik" id="table-materijali">
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+        <tr><th style="width: 160px;">Naziv</th><th>Tip</th><th>Datum postavljanja</th><th>Veličina</th><th>Nastavnik</th><th>Brisanje</th></tr>
+        </thead>
+        <tbody>
     <?php foreach ($materijali as $materijal): ?>
         <tr>
             <td><?php echo $materijal['naziv']?></td>
@@ -32,6 +38,7 @@ $materijali = $predmet->getIspitniZadaci($_SESSION['predmetID']); ?>
             <td><a id="obrisi-mat" href="brisanjeMat.php?id=<?php echo $materijal['ID']?>&vrsta=ispitni">Obriši</a></td>
         </tr>
     <?php endforeach; ?>    
+        </tbody>
     </table>
   </div>
 <?php endif; ?>

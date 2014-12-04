@@ -1,6 +1,6 @@
 
 <?php
-require_once '../sesijaZaposleni.php';
+require_once 'sesijaZaposleni.php';
 $title = "Obaveštenja";
 $naslov ="Obaveštenja";
 require_once '../header.php';
@@ -18,15 +18,15 @@ $vesti= new Vest($db);
        
 </div>
 <div id="unos-vesti">
-    <form id="forma-vesti" action="" method="POST">
-        <label>Naslov vesti:</label><br>
-        <input type="text" name="naslov" required><br>
-        <label>Unesite tekst vesti:</label><br>
+    <form id="forma-vesti" class="pure-form pure-form-stacked" action="" method="POST">
+        <label>Naslov vesti:</label>
+        <input type="text" name="naslov" required>
+        <label>Unesite tekst vesti:</label>
         <div id="edit-vesti">
         <textarea class="ckeditor" id="sadrzaj-vesti" name="sadrzaj-vesti"></textarea>
         <input type="hidden" id="sadrzaj" name="sadrzaj" value="">
-        </div><br>
-        <label>Izaberite predmete:</label><br>
+        </div>
+        <label>Izaberite predmete:</label>
        <?php
         $angazovanje = $predmet->getPredmetByProf($_SESSION['id']);
        ?>
@@ -34,10 +34,10 @@ $vesti= new Vest($db);
         <?php foreach ($angazovanje as $red):?>
           <option value="<?php echo $red['ID'];?>"><?php echo $red['naziv'].' ('.$red['sifra_predmeta'].')'; ?></option>
             <?php endforeach; ?>
-    </select><br>
-    <label>Datum:</label><input type="date" name="datum"><br>
-    <input type="file" name="fajl"><br>
-    <input type="submit" name="submit" value="Prihvati">
+    </select>
+    <label>Datum:</label><input type="date" name="datum">
+    <input type="file" name="fajl">
+    <input type="submit" class="button-small pure-button" name="submit" value="Prihvati">
     </form>
 </div>
 

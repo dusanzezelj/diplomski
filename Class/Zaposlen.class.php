@@ -8,9 +8,10 @@ class Zaposlen extends Korisnik {
     }
     public function dodaj($username, $password, $ime, $prezime, $adresa, $telefon, $email, $sajt, $bio, $zvanje, $datum, $kabinet, $prijem, $status){
         $this->proveraUsername($username);
+         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO zaposleni (username, password, ime, prezime, adresa, telefon, email, web_sajt, biografija, zvanje, "
                 . "datum_isteka_ugovora, kabinet, prijem_studenata, status)"
-                . "VALUES ('$username', '".sha1($password)."', '$ime', '$prezime', '$adresa', '$telefon', '$email', "
+                . "VALUES ('$username', '".$hashed_password."', '$ime', '$prezime', '$adresa', '$telefon', '$email', "
                 . "'$sajt', '$bio', '$zvanje', $datum, '$kabinet', '$prijem', $status)";
         if($this->db->SqlQuery($query)){
             return $this->db->GetLastInsertID();            
@@ -19,7 +20,7 @@ class Zaposlen extends Korisnik {
         }
     }
     public function sviZaposleni(){
-        $query = "SELECT * FROM zaposleni";
+        $query = "SELECT * FROM zaposleni WHERE status = 1";
         $result = $this->db->SqlQuery($query);
         $zaposleni = array();
         while($row = $this->db->FetchArray($result)){
@@ -29,13 +30,19 @@ class Zaposlen extends Korisnik {
     }
     public function getZaposlen($id){
         $query = "SELECT * FROM $this->table"
-                . " WHERE ID = $id";
+                . " WHERE ID = $id AND status = 1";
         $res = $this->db->SqlQuery($query);
         return $this->db->FetchArray($res);
     }
     public function editZaposlen($id, $adresa, $telefon, $biografija, $kabinet, $prijem){
         $query = "UPDATE zaposleni
-                 SET adresa = '$adresa' AND telefon = '$telefon' AND biografija = '$biografija' AND kabinet = '$kabinet' AND prijem_studenata = '$prijem'
+                 SET adresa = '$adresa', telefon = '$telefon', biografija = '$biografija', kabinet = '$kabinet', prijem_studenata = '$prijem'
+                 WHERE ID = $id";
+        $this->db->SqlQuery($query);
+    }
+    public function adminAzuriranje($id, $ime, $prezime, $kime, $zvanje, $datum){
+        $query = "UPDATE $this->table
+                 SET ime = '$ime', prezime = '$prezime', username = '$kime', zvanje = '$zvanje', datum_isteka_ugovora = $datum
                  WHERE ID = $id";
         $this->db->SqlQuery($query);
     }
@@ -51,6 +58,29 @@ class Zaposlen extends Korisnik {
                 . "(id_predmet, id_nastavnik, grupa) VALUES ($predmetID, $zaposleniID, $grupa)";
         if(!$this->db->SqlQuery($query)){
             throw new Exception("Greška prilikom dodavanja angažovanja");
+        }
+    }
+    public function addImage($id, $slika){
+        $query = "SELECT slika FROM zaposleni WHERE ID = $id";
+        $result = $this->db->SqlQuery($query);
+        $pom = $this->db->FetchArray($result);
+        if(!empty($pom[0])){
+            unlink($_SERVER['DOCUMENT_ROOT'] . "diplomski/upload/images/". $pom[0]);           
+        }
+        $query = "UPDATE zaposleni SET slika = '$slika' WHERE ID = $id";
+        $this->db->SqlQuery($query);
+    }
+    public function putanjaSlike(){
+        return "http://localhost/diplomski/upload/images/";
+        //return $_SERVER['DOCUMENT_ROOT'] . "diplomski/upload/images/";
+    }
+    public function obrisi($id){
+        $query = "UPDATE zaposleni SET status = 0 WHERE ID = $id";
+        if($this->db->SqlQuery($query)){
+            $query = "DELETE FROM angazovanja WHERE id_nastavnik = $id";
+            $this->db->SqlQuery($query);
+        } else {
+            throw new Exception("Greška prilikom brisanja zaposlenog");
         }
     }
     

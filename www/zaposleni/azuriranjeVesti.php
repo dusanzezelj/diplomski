@@ -1,6 +1,6 @@
 <?php
 
-//require_once '../sesijaZaposleni.php';
+require_once 'sesijaZaposleni.php';
 require_once '../../Class/Db.class.php';
 require_once '../../inc/mysql.inc.php';
 require_once '../../Class/Vest.class.php';
@@ -15,10 +15,10 @@ $db = new Db(HOST, USERNAME, PASSWORD, DATABASE);
 ?>
 <div id="div-azuriranje-vesti">
     <h3><?php echo $v['naslov']?></h3>
-    <form id="forma-azuriranje-vesti" action="" method="POST">
+    <form class="pure-form pure-form-stacked" id="forma-azuriranje-vesti" action="" method="POST">
         <input type="hidden" name="id" value="<?php echo $v['ID']?>">
         <label>Sadržaj vesti:</label><textarea class="ckeditor" name="sadrzaj" value=""><?php echo $v['sadrzaj']?></textarea>
-        <input type="submit" id="submit" name="submit" value="Prihvati">
+        <input type="submit" class="button-small pure-button" id="submit" name="submit" value="Prihvati">
     </form>
 </div>
 <?php require_once '../footer.php';?>

@@ -7,7 +7,7 @@ class Vest {
     public function __construct($db) {
         $this->db = $db;
     }
-    public function InsertVest($id_predmet, $naslov, $sadrzaj, $datum, $fajl=null){
+    public function InsertVest($id_predmet, $odsek, $naslov, $sadrzaj, $datum, $fajl=null){
         $query = "INSERT INTO vesti (id_predmet, naslov, sadrzaj, datum) VALUES ($id_predmet, '$naslov', '$sadrzaj', '$datum')";
          if(!$this->db->SqlQuery($query)){
              throw new Exception("Greska prilikom dodavanja vesti");
@@ -26,7 +26,7 @@ class Vest {
             if(!(in_array($tip, $ext)) || !(in_array($fajl['type'], $mime_types))){
             throw new Exception("Pogresan tip fajla");
             }
-            $pathname = $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$id_predmet/vesti/";
+            $pathname = $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/$id_predmet/vesti/";
             if(!is_dir($pathname)){
                mkdir($pathname, 0777, true);
               }
@@ -37,6 +37,15 @@ class Vest {
     }
     public function getVestByIDPredmet($id_predmet){
         $query = "SELECT * FROM vesti WHERE id_predmet IN($id_predmet) ORDER BY datum DESC";
+        $result = $this->db->SqlQuery($query);
+        $niz = array();
+        while($row = $this->db->FetchArray($result)){
+            $niz[] = $row;
+        }
+        return $niz;
+    }
+    public function getMaterijali($id){
+        $query = "SELECT * FROM vesti_materijal WHERE id_vest = $id";
         $result = $this->db->SqlQuery($query);
         $niz = array();
         while($row = $this->db->FetchArray($result)){
@@ -58,13 +67,16 @@ class Vest {
             throw new Exception("Greška prilikom ažuriranja vesti");
         }
     }
+    public function getPath($odsek, $predmet){
+      return "http://localhost/diplomski/upload/$odsek/$predmet/vesti/";
+    }
 
-    public function deleteVest($id){
+    public function deleteVest($id, $odsek){
         $query = "SELECT v.id_predmet, vm.ID, vm.naziv FROM vesti as v INNER JOIN vesti_materijal as vm ON (v.ID = vm.id_vest)
                   WHERE vm.id_vest = $id";
         $result = $this->db->SqlQuery($query);        
         while($row = $this->db->FetchArray($result)){
-            if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/".$row['id_predmet']."/vesti/".$row['naziv'])){
+            if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/".$odsek.$row['id_predmet']."/vesti/".$row['naziv'])){
                 $query = "DELETE * FROM vesti_materijal WHERE ID =". $row['ID'];
                 $this->db->SqlQuery($query);
             } else {

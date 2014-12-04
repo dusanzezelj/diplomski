@@ -12,7 +12,7 @@ try {
         case "predavanja":
                 $predmet->upload($_FILES['file'], $_SESSION['predmetID'], $_SESSION['ime_prezime'], "materijali");
             break;
-        case "ispitni_zadaci":
+        case "ispitni":
                 $predmet->upload($_FILES['file'], $_SESSION['predmetID'], $_SESSION['ime_prezime'], "ispitni_zadaci");
             break;
         case "projekat":
@@ -21,11 +21,6 @@ try {
         default:
             break;
     }
-    /*if($_POST['vrsta'] == "predavanja"){
-        $predmet->upload($_FILES['file'], $_SESSION['predmetID'], $_SESSION['ime_prezime'], "materijali");
-    } elseif ($_POST['vrsta'] == "ispitni") {
-        $predmet->upload($_FILES['file'], $_SESSION['predmetID'], $_SESSION['ime_prezime'], "ispitni_zadaci");
-   }*/
   } catch (Exception $exc) {
     echo $exc->getMessage();
  }

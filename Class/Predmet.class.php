@@ -27,7 +27,6 @@ class Predmet {
         }
         return $predmeti;
     }
-
     public function getPredmetByID($id){        
         $query = "SELECT * FROM predmeti
                   WHERE ID = $id";
@@ -77,8 +76,8 @@ class Predmet {
         $data = $this->db->FetchArray($result);
         if(!empty($data)){
            $odsek = $this->getOdsek($data['id_predmet']); 
-        if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/".$data['id_predmet']."/materijali/".$data['naziv'])){
-            $query = "DELETE * FROM materijali WHERE ID = $id";
+        if(unlink($_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/".$data['id_predmet']."/$tabela/".$data['naziv'])){
+            $query = "DELETE FROM materijali WHERE ID = $id";
             $this->db->SqlQuery($query);
         } else {
             throw new Exception ("Greška prilikom brisanja materijala");
@@ -107,7 +106,7 @@ class Predmet {
         }
         return $r;       
     }
-    private function getOdsek($predmetID){
+    public function getOdsek($predmetID){
         $query = "SELECT odsek FROM predmeti where ID = $predmetID";
         $result = $this->db->SqlQuery($query);
         $niz = $this->db->FetchArray($result);
@@ -133,16 +132,19 @@ class Predmet {
         }
     }
     public function getProfesor($id){
-        $query = "SELECT z.ime, z.prezime FROM zaposleni as z
+        $query = "SELECT z.ID, z.ime, z.prezime FROM zaposleni as z
                   INNER JOIN angazovanja as a ON ( z.ID = a.id_nastavnik)
-                  WHERE a.id_predmet = $id AND z.zvanje = 'redovni profesor'";
+                  WHERE a.id_predmet = $id AND z.zvanje = 'redovni profesor' AND z.status = 1";
         $res = $this->db->SqlQuery($query);
-        $r = $this->db->FetchArray($res);
-        return $r['ime'].' '.$r['prezime'];
+        $r = array();
+        while($row = $this->db->FetchArray($res)){
+        $r[] = $row;
+        }
+        return $r;
     }
     public function getPath($id, $vrsta){
         $odsek = $this->getOdsek($id);
-        return $_SERVER['DOCUMENT_ROOT']. "diplomski/upload/$odsek/$id/$vrsta/";
+        return "http://localhost/diplomski/upload/$odsek/$id/$vrsta/";
     }
             
     

@@ -6,14 +6,18 @@ require_once 'includes.php';
 $db = new Db(HOST, USERNAME, PASSWORD, DATABASE);
 $predmet = new Predmet($db);
 $id = $db->EscapeString($_GET['id']);
+require_once 'meniPredmet.php';
 $projekti = $predmet->getProjekti($id);
 ?>
 <div id="lista-materijali">
     <?php if(!empty($projekti)): ?>
-      <table>
+    <table class="pure-table pure-table-horizontal">
+        <thead>
         <tr>
-            <th>Naziv</th><th>Tip</th><th>Veličina</th><th>Datum</th>
+            <th style="width: 200px;">Naziv</th><th>Tip</th><th>Veličina</th><th>Datum</th><th></th>
         </tr>
+        </thead>
+        <tbody>
         <?php foreach ($projekti as $projekat): ?>             
         <tr>
             <td><?php echo $projekat['naziv'];?></td>
@@ -23,6 +27,7 @@ $projekti = $predmet->getProjekti($id);
             <td><a href="<?php echo $predmet->getPath($id, "projekti"). $projekat['naziv'];?>">Preuzmi</a></td>
         </tr>    
         <?php endforeach; ?>
+        </tbody>
       </table>
     <?php else: ?>
     <h3>Nema projekata i domaćih zadataka za ovaj predmet</h3>

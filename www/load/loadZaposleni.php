@@ -8,12 +8,14 @@ $db = new Db(HOST, USERNAME, PASSWORD, DATABASE);
 $zaposleni = new Zaposlen($db);
 $predmeti = new Predmet($db);
 $svi_zaposleni = $zaposleni->sviZaposleni();
+$putanja = $zaposleni->putanjaSlike();
 ?>
+<tbody>
 <?php foreach ($svi_zaposleni as $zap): ?>
    <tr>
      <td>
       <?php if(!empty($zap['slika'])): ?>
-       <img src="../images/zaposleni/<?php echo $zap['slika'] ;?>">
+       <img src="<?php echo $putanja. $zap['slika'] ;?>">
       <?php endif; ?>   
     </td>
     <td><?php echo $zap['ime'].' '.$zap['prezime']?></td>
@@ -31,3 +33,4 @@ $svi_zaposleni = $zaposleni->sviZaposleni();
    </td>   
  </tr>
 <?php endforeach; ?>
+</tbody>

@@ -5,50 +5,118 @@ body {
   
 }
 a{
+    color: black;
     text-decoration: none;
 }
 #container{
     overflow: hidden;
     background-color: white;
-    width: 960px;
+    width: 1024px;
     margin-left:auto;
     margin-right: auto;
 }
 #header{
     width: 100%;
-    height: 50px;
+    height: 125px;
     text-align: center;
+    background-image: url("http://localhost/diplomski/upload/images/slike_pocetna/header-bg.jpg");
+    background-repeat: repeat-x;
+    overflow: hidden;
 }
-#prof_meni{
+#header h1{
+    padding-top: 10px;
+}
+#slika-logo{
+    float: left;
+    width: 90px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#div-footer{
+    clear: both;
+    float: left;
+    width: 1024px;
+    height: 30px;    
+    margin-top: 50px;
+    font-size: 14px;
+    background-color: #993333;
+    text-align: center;
+    padding-bottom: 10px;
+}
+#div-footer h5{
+    
+}
+/*#prof_meni{
     background-color: white;
     float: left;
-    width: 200px;
+    width: 140px;
     padding-top: 20px;
-    height: 100%;
-}
-#prof_meni ul{
-    
-    
+    height: 100vh;
+}*/
+#baner{
+    float: right;
+    width: 200px;
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    height: 100vh;
+    background-color: #F0E0B2;
+    text-align: center;
+    padding-top: 100px;
 }
 #profil{
+    padding-top: 50px;
     background-color: white;
     float:left;
+}
+#profil #bio{
+    padding-left: 100px;
+}
+#profil input[type="submit"]{
+    margin-left: 170px;
+}     
+#prof-predmet-izbor{
+    float: left;
     padding: 50px;
-    margin-left: 50px;
-    
 }
 #prof-predmet-edit{
     margin: 50px;
-    text-align: center;
+    /*text-align: center;*/
     width: 500px;
     float: left;
     
 }
-#table-materijali {
-    float: left;
+#prof-publikacije{
+    float: left;    
     width: 500px;
+    padding: 30px;
 }
-#table-materijali table{
+#prof-publikacije h3{
+    text-align: center;
+}
+#prof-publikacije input[type="submit"]{
+    margin-left: 170px;
+}
+.sadrzaj-nastavnik{
+    float: left;
+    width: 600px;
+    margin-left: 30px;
+}
+.sadrzaj-nastavnik input[type="submit"]{
+    margin-left: 80px;
+    margin-top: 10px;
+}
+.sadrzaj-nastavnik h3{
+    text-align: center;
+}
+#materijal-lab-vezbe{
+    width: 550px;
+    margin-top: 50px;
+    padding: 10px;
+    padding-left: 80px;
+    border: 3px solid #CF293F;
+}
+/*#table-materijali table{
      border-collapse: collapse;
      border: 1px solid black;
      text-align: center;
@@ -63,26 +131,30 @@ a{
     height: 30px;
     padding: 5px;
 }
+*/
 #forma-dodavanje-materijal{
     float: left;
-    width: 760px;
-    margin: 40px, auto;
+    width: 500px;
+    margin: 30px;
 }
-#edit-vesti{
+/*#edit-vesti{
     width: 600px;
     height: 300px;
     padding-top: 15px;
-}
+}*/
 #unos-vesti{
-    width: 700px;
-    margin-left: 200px;
+    width: 600px;
+    margin-left: 50px;
     float:left;
 }
 #spisak-vesti{
+    float: left;
     text-align: center;
+    margin-left: 50px;
     margin-bottom: 50px;
+    margin-top: 30px;
 }
-#spisak-vesti table{
+/*#spisak-vesti table{
     border-collapse: collapse;     
      text-align: center;     
 }
@@ -93,13 +165,113 @@ a{
 }
 #spisak-vesti table tr th{
     border: 1px solid black;
+}*/
+.unos-korisnika{
+    width: 500px;
+    float: left;
+    margin-top: 80px;
+    margin-left: 30px;
+}
+.unos-korisnika input[type="submit"]{
+    margin-left: 90px;
+    margin-top: 5px;
+}
+.unos-korisnika input[type="reset"]{
+    margin-left: 20px;
+    margin-top: 5px;
 }
 #lista-zaposleni {
     float: left;
+    width: 700px;
+    padding-top: 50px;
     margin-left: 50px;
     text-align: center;
 }
-#lista-zaposleni table td{
+#podnaslov-ostudije {
+    float: left;
+    width: 700px;
+    margin-top: 25px;
+    margin-left: 50px;
+    text-align: center;
+}
+#lista-predmeta{
+    float: left;
+    width: 700px;
+    margin-top: 15px;
+    margin-left: 50px;
+       
+}
+#navigacija-predmet {
+    float: left;
+    margin-top: 50px;
+    margin-left: 25px;
+}
+#navigacija-predmet ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;    
+}
+#navigacija-predmet ul li{
+    float: left;
+}
+#navigacija-predmet a:link, #navigacija-predmet a:visited {
+    display: block;
+    width: 120px;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 12px;
+    background-color: #CF293F;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#navigacija-predmet a:hover, #navigacija-predmet a:active {
+    background-color: #96081B;
+}
+#info-predmet{
+    margin-top: 80px;
+    width: 600px;
+    float: left;
+    margin-left: 70px;
+}
+.kolona1{
+    width: 250px;
+}
+#info-predmet th{
+    text-align: center;
+    font-size: 18px;
+}
+#lista-obavestenja {
+    margin-top: 80px;
+    width: 600px;
+    float: left;
+    margin-left: 70px;
+}
+#lista-obavestenja table{
+    width: 600px;
+}
+.prazno{
+    margin-top: 80px;
+    width: 600px;
+    margin-left: 30px;
+    text-align: center;
+}
+#lista-materijali {
+    margin-top: 80px;
+    width: 600px;
+    float: left;
+    margin-left: 70px;
+}
+#info-lab-vezbe {
+    float: left;
+    width: 600px;
+    text-align: center;
+    padding-top: 50px;
+}
+/*#lista-zaposleni table td{
     padding: 3px;
     border-bottom: 1px solid #139ff7;
     font-size: 15px;
@@ -107,12 +279,1220 @@ a{
 }
 #lista-zaposleni table th{
     background-color: #139ff7;
+}*/
+#nastavnik-info{
+    width: 600px;
+    float: left;
+    padding-left: 70px;
+    margin-top: 30px;
+}
+#slika-nastavnik{
+    padding-left: 70px;
+    width: 600px;
+    margin-top: 70px;
+    border-bottom: 1px dotted #96081B
+}
+#lista-publikacije{
+    margin-top: 30px;
+    width: 600px;
+    float: left;
+    margin-left: 70px;
+}
+#sortiranje-publikacije{
+    margin-top: 30px;
+    width: 600px;
+    float: left;
+    margin-left: 100px;
+}
+#sortiranje-publikacije label{
+    padding-right: 5px;
+}
+#lozinka{
+    margin-top: 30px;
+    width: 600px;
+    float: left;
+    margin-left: 100px;
+    margin-bottom: 70px;
+}
+#lozinka input[type="submit"]{
+    margin-left: 70px;
+}
+#lozinka a{
+    color: blue;    
+}
+#header-lozinka{
+    width: 150px;
+    height: 50px;
+    float: right;
+    text-align: left;
+    padding-top: 35px;
+    
+}
+#header-naslov{
+    width: 783px;
+    float: left;
+    text-align: center;
+}
+.meni-zaposleni{
+    float: left;
+    padding-top: 20px;
+    height: 100vh;
+}
+.meni-zaposleni nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 140px;
+    border-bottom: 1px solid #ccc;
+}
+.meni-zaposleni nav ul li{
+    position: relative;
+}
+.meni-zaposleni nav ul li ul{
+   position: absolute;
+   left: 139px;
+   top: 0;
+   display: none; 
+}
+
+.meni-zaposleni nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: #777;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-bottom: 0;    
+}
+.meni-zaposleni nav ul li ul li a{    
+    text-decoration: none;
+    color: #777;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-bottom: 0;    
+}
+.meni-zaposleni nav ul li a:hover{
+    background-color: #96081B;
+    color: white;
+    
+}
+.meni-zaposleni nav ul li:hover ul{
+    display: block;
 }
 #uslov{
     width: 100px;
     height: 70px;
 }
 #div-azuriranje-vesti{
+    font-family: 'Bree Serif', 'serif';
+    margin-left: 50px;
     float: left;
-    width: 700px;
+    width: 600px;
 }
+#div-azuriranje-vesti h3{
+    text-align: center;
+}
+#div-azuriranje-vesti input[type="submit"]{
+   margin-top: 20px;
+}
+.glavni-meni { 
+    position: relative;
+    z-index: 9999;
+    float: left;
+    width: 1024px;
+    background-color:#64abfb;
+}
+.glavni-meni nav ul{
+    padding:0;
+    margin:0;
+    list-style: none;
+    position: relative;
+    display:block;
+}
+.glavni-meni nav ul li {
+        float:left;
+        display:list-item;
+        list-style: none;        
+        background-color:#64abfb;
+        border-bottom: 5px solid #2ecc71;
+        }
+.glavni-meni nav ul li a {
+    display:block;
+    padding:10px 12px;      
+    color:#FFF;
+    font-size:16px;
+    text-decoration:none;
+    font-family: 'Bree Serif', 'serif';
+}
+.glavni-meni li a:hover { background-color: #2ecc71; }/*mozda cu trebati da dodam klasu*/
+.glavni-meni nav ul ul {
+    display: none;
+   
+}
+#azuriranje-korisnika{
+    width: 600px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}  
+#azuriranje-student input[type="submit"], #azuriranje-zaposlen input[type="submit"]{
+    margin-left: 180px;
+}
+.info-korisnik-admin{
+    width: 500px;
+    float: left;
+    margin-left: 30px;
+}
+#brisanjeKorisnika{
+    padding-top: 80px;
+}
+/* Display Dropdowns on Hover */
+.glavni-meni nav ul li:hover > ul {
+    display:list-item;
+    
+}
+        
+/* Fisrt Tier Dropdown */
+.glavni-meni nav ul li ul {
+    width:100px;
+    float:none;
+    position: absolute;    
+    border-bottom:none;
+}
+.glavni-meni nav ul li ul li {
+    width:100px;
+}
+#admin-angazovanja{
+    float: left;
+    width: 600px;
+    padding-left: 50px;
+    padding-top: 80px;
+}
+.forma1{
+    margin-top: 80px;
+    float: left;
+    margin-left: 30px;
+    width: 600px;
+}
+div#cke_obavestenje, #admin-obavestenja input[type="submit"]{
+    margin-left: 80px;
+}
+#link-arhiva{
+    margin: 50px;
+}
+#forme-za-prijavu{
+    color: white;
+    background-color: #718DE2;
+    width: 260px;
+    float: left;
+    height: 385px;
+    margin-top: 5px;
+}
+#forme-za-prijavu h4{
+    text-align: center;
+}
+.prijava{
+    margin: 10px;
+    background-color: #5A71B5;
+    padding-left: 30px;
+    font-size: 15px;
+}
+.prijava input[type="submit"]{
+    margin-top: 4px;
+    margin-bottom: 3px;
+}
+.prijava input[type="text"],
+.prijava input[type="password"]{
+    display: block;
+    
+}
+#katedra-tekst{
+    width: 650px;
+    float: left;
+    padding: 30px;
+    text-align: justify;
+    font-size: 16px;
+}
+.pocetna-sadrzaj{
+    width: 330px;
+    float: left;
+    margin:15px 25px;
+    padding: 5px;
+    background-color: #E7E7E7;
+}
+.pocetna-sadrzaj h2{
+    background-color: #D4D4D4;
+    padding-left: 10px;
+}
+.pocetna-sadrzaj h5{
+    font-size: 13px;
+    font-family: 'Bree Serif', 'serif';
+}
+.pocetna-sadrzaj .item{
+    background-color: #EBEBEB;
+    border-bottom: 1px dotted #ccc;
+    margin: 5px;
+}
+#kontakt{
+    max-width: 700px;
+    float: left;
+    margin: 30px;
+}
+#kontakt table{    
+    border: 1px solid black;
+    display: inline-table;
+    width: 300px;
+    height: 200px;
+    padding: 15px;
+    margin: 5px;
+     background-color: #F1F1F1;
+}
+#kontakt table th{
+    padding-bottom: 10px;
+     background-color: #E7E7E7;
+}
+#projekti{
+    font-family: Georgia, Times New Roman, Times, serif;
+    width: 600px;
+    float: left;
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 30px;
+}
+#projekti h1, #projekti h2{
+    border-bottom: 1px dotted #96081B;
+}
+#projekti h1{
+    font-size: 25px;
+    text-decoration: none;
+}
+#projekti h2{
+    font-size: 18px;
+    text-decoration: none;
+}
+#projekti a{
+    color: blue;
+}
+#diplomski-radovi{
+    margin-left: 30px;
+    margin-top: 70px;
+    float: left;
+    width: 650px;
+    background-color: #8F0000;
+}
+#diplomski-radovi .item{
+    padding-left: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-bottom: 20px;
+    background-color: #EBEBEB;
+}
+#diplomski-radovi h1{
+    color: white;
+    padding-left: 50px;
+}
+#istrazivanja{
+    width: 600px;
+    float: left;
+    margin-left: 50px;    
+}
+#istrazivanja h2{
+    padding-bottom: 25px;
+    padding-left: 30px;
+    text-align: center;
+}
+#istrazivanja ul{
+    padding-left: 250px;
+}
+#istrazivanja ul li{
+    padding-bottom: 7px;
+}
+/*!
+Pure v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+.pure-form input[type="text"],
+.pure-form input[type="password"],
+.pure-form input[type="email"],
+.pure-form input[type="url"],
+.pure-form input[type="date"],
+.pure-form input[type="month"],
+.pure-form input[type="time"],
+.pure-form input[type="datetime"],
+.pure-form input[type="datetime-local"],
+.pure-form input[type="week"],
+.pure-form input[type="number"],
+.pure-form input[type="search"],
+.pure-form input[type="tel"],
+.pure-form input[type="color"],
+.pure-form select,
+.pure-form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.pure-form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+
+
+.pure-form input[type="text"]:focus,
+.pure-form input[type="password"]:focus,
+.pure-form input[type="email"]:focus,
+.pure-form input[type="url"]:focus,
+.pure-form input[type="date"]:focus,
+.pure-form input[type="month"]:focus,
+.pure-form input[type="time"]:focus,
+.pure-form input[type="datetime"]:focus,
+.pure-form input[type="datetime-local"]:focus,
+.pure-form input[type="week"]:focus,
+.pure-form input[type="number"]:focus,
+.pure-form input[type="search"]:focus,
+.pure-form input[type="tel"]:focus,
+.pure-form input[type="color"]:focus,
+.pure-form select:focus,
+.pure-form textarea:focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type]):focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+}
+
+.pure-form input[type="file"]:focus,
+.pure-form input[type="radio"]:focus,
+.pure-form input[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline: 1px auto #129FEA;
+}
+.pure-form .pure-checkbox,
+.pure-form .pure-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.pure-form input[type="text"][disabled],
+.pure-form input[type="password"][disabled],
+.pure-form input[type="email"][disabled],
+.pure-form input[type="url"][disabled],
+.pure-form input[type="date"][disabled],
+.pure-form input[type="month"][disabled],
+.pure-form input[type="time"][disabled],
+.pure-form input[type="datetime"][disabled],
+.pure-form input[type="datetime-local"][disabled],
+.pure-form input[type="week"][disabled],
+.pure-form input[type="number"][disabled],
+.pure-form input[type="search"][disabled],
+.pure-form input[type="tel"][disabled],
+.pure-form input[type="color"][disabled],
+.pure-form select[disabled],
+.pure-form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.pure-form input[readonly],
+.pure-form select[readonly],
+.pure-form textarea[readonly] {
+    background: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.pure-form input:focus:invalid,
+.pure-form textarea:focus:invalid,
+.pure-form select:focus:invalid {
+    color: #b94a48;
+    border-color: #ee5f5b;
+}
+.pure-form input:focus:invalid:focus,
+.pure-form textarea:focus:invalid:focus,
+.pure-form select:focus:invalid:focus {
+    border-color: #e9322d;
+}
+.pure-form input[type="file"]:focus:invalid:focus,
+.pure-form input[type="radio"]:focus:invalid:focus,
+.pure-form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.pure-form select {
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.pure-form select[multiple] {
+    height: auto;
+}
+.pure-form label {
+    margin: 0.5em 0 0.2em;
+}
+.pure-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.pure-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.pure-form-stacked input[type="text"],
+.pure-form-stacked input[type="password"],
+.pure-form-stacked input[type="email"],
+.pure-form-stacked input[type="url"],
+.pure-form-stacked input[type="date"],
+.pure-form-stacked input[type="month"],
+.pure-form-stacked input[type="time"],
+.pure-form-stacked input[type="datetime"],
+.pure-form-stacked input[type="datetime-local"],
+.pure-form-stacked input[type="week"],
+.pure-form-stacked input[type="number"],
+.pure-form-stacked input[type="search"],
+.pure-form-stacked input[type="tel"],
+.pure-form-stacked input[type="color"],
+.pure-form-stacked select,
+.pure-form-stacked label,
+.pure-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.pure-form-aligned input,
+.pure-form-aligned textarea,
+.pure-form-aligned select,
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.pure-form-aligned .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.pure-form-aligned textarea {
+    vertical-align: top;
+}
+
+/* Aligned Forms */
+.pure-form-aligned .pure-control-group {
+    margin-bottom: 0.5em;
+}
+.pure-form-aligned .pure-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.pure-form-aligned .pure-controls {
+    margin: 1.5em 0 0 10em;
+}
+
+/* Rounded Inputs */
+.pure-form input.pure-input-rounded,
+.pure-form .pure-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.pure-form .pure-group fieldset {
+    margin-bottom: 10px;
+}
+.pure-form .pure-group input {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+.pure-form .pure-group input:focus {
+    z-index: 2;
+}
+.pure-form .pure-group input:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+}
+.pure-form .pure-group input:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+}
+.pure-form .pure-group button {
+    margin: 0.35em 0;
+}
+
+.pure-form .pure-input-1 {
+    width: 100%;
+}
+.pure-form .pure-input-2-3 {
+    width: 66%;
+}
+.pure-form .pure-input-1-2 {
+    width: 50%;
+}
+.pure-form .pure-input-1-3 {
+    width: 33%;
+}
+.pure-form .pure-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.pure-form .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Block help for forms */
+.pure-form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
+
+@media only screen and (max-width : 480px) {
+    .pure-form button[type="submit"] {
+        margin: 0.7em 0 0;
+    }
+
+    .pure-form input:not([type]),
+    .pure-form input[type="text"],
+    .pure-form input[type="password"],
+    .pure-form input[type="email"],
+    .pure-form input[type="url"],
+    .pure-form input[type="date"],
+    .pure-form input[type="month"],
+    .pure-form input[type="time"],
+    .pure-form input[type="datetime"],
+    .pure-form input[type="datetime-local"],
+    .pure-form input[type="week"],
+    .pure-form input[type="number"],
+    .pure-form input[type="search"],
+    .pure-form input[type="tel"],
+    .pure-form input[type="color"],
+    .pure-form label {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-group input:not([type]),
+    .pure-group input[type="text"],
+    .pure-group input[type="password"],
+    .pure-group input[type="email"],
+    .pure-group input[type="url"],
+    .pure-group input[type="date"],
+    .pure-group input[type="month"],
+    .pure-group input[type="time"],
+    .pure-group input[type="datetime"],
+    .pure-group input[type="datetime-local"],
+    .pure-group input[type="week"],
+    .pure-group input[type="number"],
+    .pure-group input[type="search"],
+    .pure-group input[type="tel"],
+    .pure-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .pure-form-aligned .pure-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .pure-form-aligned .pure-controls {
+        margin: 1.5em 0 0 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+    .pure-form .pure-help-inline,
+    .pure-form-message-inline,
+    .pure-form-message {
+        display: block;
+        font-size: 0.75em;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2em 0 0.8em;
+    }
+}
+/*!
+Pure v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+.pure-button {
+    /* Structure */
+    display: inline-block;
+    *display: inline; /*IE 6/7*/
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/*csslint outline-none:false*/
+
+.pure-button {
+    font-family: inherit;
+    font-size: 100%;
+    *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
+    *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+    padding: 0.5em 1em;
+    color: #444; /* rgba not supported (IE 8) */
+    color: rgba(0, 0, 0, 0.80); /* rgba supported */
+    *color: #444; /* IE 6 & 7 */
+    border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.pure-button-hover,
+.pure-button:hover,
+.pure-button:focus {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+    background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+}
+.pure-button:focus {
+    outline: 0;
+}
+.pure-button-active,
+.pure-button:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+}
+
+.pure-button[disabled],
+.pure-button-disabled,
+.pure-button-disabled:hover,
+.pure-button-disabled:focus,
+.pure-button-disabled:active {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pure-button-hidden {
+    display: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-button::-moz-focus-inner{
+    padding: 0;
+    border: 0;
+}
+.button-small {
+            font-size: 85%;
+        }
+.pure-button-primary,
+.pure-button-selected,
+a.pure-button-primary,
+a.pure-button-selected {
+    background-color: rgb(0, 120, 231);
+    color: #fff;
+}
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+/*!
+Pure v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+/*csslint adjoining-classes:false, outline-none:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+.pure-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+.pure-table td:first-child,
+.pure-table th:first-child {
+    border-left-width: 0;
+}
+
+.pure-table thead {
+    background: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.pure-table td {
+    background-color: transparent;
+}
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.pure-table-striped tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+
+/* BORDERED TABLES */
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-bordered tbody > tr:last-child td,
+.pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+
+/* HORIZONTAL BORDERED TABLES */
+
+.pure-table-horizontal td,
+.pure-table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+/*!
+Pure v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+/*csslint adjoining-classes:false, outline-none:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+.pure-menu ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.pure-menu.pure-menu-open {
+    visibility: visible;
+    z-index: 2;
+    width: 100%;
+}
+
+.pure-menu ul {
+    left: -10000px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+}
+
+.pure-menu > ul { position: relative; }
+
+.pure-menu-open > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+}
+
+.pure-menu-open > ul:focus {
+    outline: 0;
+}
+
+.pure-menu li { position: relative; }
+
+.pure-menu a,
+.pure-menu .pure-menu-heading {
+    display: block;
+    color: inherit;
+    line-height: 1.5em;
+    padding: 5px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.pure-menu.pure-menu-horizontal > .pure-menu-heading {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    vertical-align: middle;
+}
+.pure-menu.pure-menu-horizontal > ul {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.pure-menu li a { padding: 5px 20px; }
+
+.pure-menu-can-have-children > .pure-menu-label:after {
+    content: '\25B8';
+    float: right;
+    /* These specific fonts have the Unicode char we need. */
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+    margin-right: -20px;
+    margin-top: -1px;
+}
+
+.pure-menu-can-have-children > .pure-menu-label {
+    padding-right: 30px;
+}
+
+.pure-menu-separator {
+    background-color: #dfdfdf;
+    display: block;
+    height: 1px;
+    font-size: 0;
+    margin: 7px 2px;
+    overflow: hidden;
+}
+
+.pure-menu-hidden {
+    display: none;
+}
+
+/* FIXED MENU */
+.pure-menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+/* HORIZONTAL MENU CODE */
+
+/* Initial menus should be inline-block so that they are horizontal */
+.pure-menu-horizontal li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+/* Submenus should still be display: block; */
+.pure-menu-horizontal li li {
+    display: block;
+}
+
+/* Content after should be down arrow */
+.pure-menu-horizontal > .pure-menu-children > .pure-menu-can-have-children > .pure-menu-label:after {
+    content: "\25BE";
+}
+/*Add extra padding to elements that have the arrow so that the hover looks nice */
+.pure-menu-horizontal > .pure-menu-children > .pure-menu-can-have-children > .pure-menu-label {
+    padding-right: 30px;
+}
+
+/* Adjusting separator for vertical menus */
+.pure-menu-horizontal li.pure-menu-separator {
+	height: 50%;
+	width: 1px;
+	margin: 0 7px;
+}
+
+/* Submenus should be horizontal separator again */
+.pure-menu-horizontal li li.pure-menu-separator {
+	height: 1px;
+	width: auto;
+	margin: 7px 2px;
+}
+
+
+/*csslint adjoining-classes:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+/* MAIN MENU STYLING */
+
+.pure-menu.pure-menu-open,
+.pure-menu.pure-menu-horizontal li .pure-menu-children {
+    background: #fff; /* Old browsers */
+    border: 1px solid #b7b7b7;
+}
+
+/* remove borders for horizontal menus */
+.pure-menu.pure-menu-horizontal,
+.pure-menu.pure-menu-horizontal .pure-menu-heading {
+    border: none;
+}
+
+
+/* LINK STYLES */
+
+.pure-menu a {
+    border: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+
+}
+
+.pure-menu a,
+.pure-menu .pure-menu-can-have-children > li:after {
+    color: #777;
+}
+
+.pure-menu .pure-menu-can-have-children > li:hover:after {
+    color: #fff;
+}
+
+/* Focus style for a dropdown menu-item when the parent has been opened */
+.pure-menu .pure-menu-open {
+    background: #dedede;
+}
+
+
+.pure-menu li a:hover,
+.pure-menu li a:focus {
+    background: #eee;
+}
+
+/* DISABLED STATES */
+.pure-menu li.pure-menu-disabled a:hover,
+.pure-menu li.pure-menu-disabled a:focus {
+    background: #fff;
+    color: #bfbfbf;
+}
+
+.pure-menu .pure-menu-disabled > a {
+    background-image: none;
+    border-color: transparent;
+    cursor: default;
+}
+
+.pure-menu .pure-menu-disabled > a,
+.pure-menu .pure-menu-can-have-children.pure-menu-disabled > a:after {
+    color: #bfbfbf;
+}
+
+/* HEADINGS */
+.pure-menu .pure-menu-heading {
+    color: #565d64;
+    text-transform: uppercase;
+    font-size: 90%;
+    margin-top: 0.5em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dfdfdf;
+}
+
+/* ACTIVE MENU ITEM */
+.pure-menu .pure-menu-selected a {
+    color: #000;
+}
+
+/* FIXED MENU */
+.pure-menu.pure-menu-open.pure-menu-fixed {
+    border: none;
+    border-bottom: 1px solid #b7b7b7;
+}
+
+/*csslint box-model:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+
+.pure-paginator {
+
+    /* `pure-g` Grid styles */
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+    /* `pure-paginator` Specific styles */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.opera-only :-o-prefocus,
+.pure-paginator {
+    word-spacing: -0.43em;
+}
+
+/* `pure-u` Grid styles */
+.pure-paginator li {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+
+.pure-paginator .pure-button {
+    border-radius: 0;
+    padding: 0.8em 1.4em;
+    vertical-align: top;
+    height: 1.1em;
+}
+.pure-paginator .pure-button:focus,
+.pure-paginator .pure-button:active {
+    outline-style: none;
+}
+.pure-paginator .prev,
+.pure-paginator .next {
+    color: #C0C1C3;
+    text-shadow: 0 -1px 0 rgba(0,0,0, 0.45);
+}
+.pure-paginator .prev {
+    border-radius: 2px 0 0 2px;
+}
+.pure-paginator .next {
+    border-radius: 0 2px 2px 0;
+}
+
+@media (max-width: 480px) {
+    .pure-menu-horizontal {
+        width: 100%;
+    }
+
+    .pure-menu-children li {
+        display: block;
+        border-bottom: 1px solid black;
+    }
+}
+#slike-pocetna{
+    width: 500px;
+    z-index: -1000;
+    height: 370px;
+    padding: 5px;
+    float: left;
+}
+.rslides {
+    position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+

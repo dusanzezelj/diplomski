@@ -14,9 +14,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'links' },
 		{ name: 'insert' },
 		{ name: 'forms' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'others' },
+		//{ name: 'tools' },
+		//{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+		//{ name: 'others' },
 		'/',
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
@@ -34,8 +34,10 @@ CKEDITOR.editorConfig = function( config ) {
 	
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+	config.removePlugins = 'links,insert,forms,tools';
 	config.enterMode = CKEDITOR.ENTER_BR;
     config.shiftEnterMode = CKEDITOR.ENTER_P;
 	config.width = '500px';
 	config.height = '250px';
+	config.uiColor = '#AD4B56';
 };
